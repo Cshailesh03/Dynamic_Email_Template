@@ -87,9 +87,15 @@ export const previewTemplate = async (req, res) => {
       compiledBody = compiledBody.replaceAll(`{{${key}}}`, val);
     }
 
-    const finalHtml = baseTemplate(values.USER_NAME || 'User', compiledBody);
+    // Extract additional dynamic fields
+    const userName = values.USER_NAME || 'User';
+    const companyName = values.COMPANY_NAME || 'Our Company';
+    const logoUrl = values.COMPANY_LOGO_URL || 'https://img.freepik.com/free-vector/professional-rr-logotype-template_23-2149228028.jpg?semt=ais_items_boosted&w=740';
+
+    const finalHtml = baseTemplate(userName, compiledBody, companyName, logoUrl);
     res.status(200).send(finalHtml);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
+
