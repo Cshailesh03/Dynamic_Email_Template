@@ -1,5 +1,5 @@
 import express from 'express';
-import  connectDB  from '../backend/src/config/db.js';
+import  connectDB  from './config/db.js';
 import templateRoutes from '../backend/src/routes/template.routes.js';
 import cors from 'cors';
 
