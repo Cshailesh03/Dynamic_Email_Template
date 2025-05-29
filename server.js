@@ -1,12 +1,16 @@
 import express from 'express';
-import { connectDB } from './config/db.js';
-import templateRoutes from '../backend/routes/template.routes.js';
+import { connectDB } from '../backend/src/config/db.js';
+import templateRoutes from '../backend/src/routes/template.routes.js';
 import cors from 'cors';
 
 const app = express();
 const PORT = process.env.PORT || 8000;
 
 app.use(express.json());
+
+const testapi = async (req, res) => {
+  res.json({ message: 'API is working' });
+}
 app.use('/api', templateRoutes);
 
 connectDB();

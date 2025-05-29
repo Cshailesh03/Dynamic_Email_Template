@@ -59,6 +59,7 @@ export const getTemplateByName = async (req, res) => {
 
 export const getAllTemplates = async (req, res) => {
   try {
+    console.log('Fetching all templates',req);
     const templates = await EmailTemplate.find().sort({ updatedAt: -1 });
     res.status(200).json({
       success: true,
