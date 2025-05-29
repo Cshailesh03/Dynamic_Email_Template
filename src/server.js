@@ -1,6 +1,6 @@
 import express from 'express';
 import  connectDB  from './config/db.js';
-import templateRoutes from '../backend/src/routes/template.routes.js';
+import templateRoutes from './routes/template.routes.js';
 import cors from 'cors';
 
 const app = express();
